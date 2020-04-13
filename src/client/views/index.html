@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <header>
+      <h1>Travel Planner</h1>
+    </header>
+    <main>
+      <section id="search">
+        <form id="search-trip-form">
+          <fieldset>
+            <label id="search-trip-location-label" for="search-trip-location"
+              >My trip to:</label>
+            <input
+              type="text"
+              id="search-trip-location"
+              placeholder="Enter your next destination"
+              list="search-trip-locations"
+              autocomplete="on"
+            />
+          </fieldset>
+          <fieldset>
+            <label id="search-trip-date-label" for="search-trip-date"
+              >Departing Date:</label
+            >
+            <input type="date" id="search-trip-date" />
+          </fieldset>
+          <div id="search-trip-buttons">
+            <button id="search-trip-save" type="submit">Save trip</button>
+            <button id="search-trip-reset" type="reset">Remove trip</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div id="sponsors">
+        <p id="powered-by">
+          Powered by
+          <a href="https://https://openweathermap.org/" target="_blank">OpenWeather.org</a>
+          |
+          <a href="https://www.geonames.org/" target="_blank">geonames.org</a> |
+          <a href="https://pixabay.com/" target="_blank"
+            ><img id="pixabay" alt="Pixabay"
+          /></a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
