@@ -1,5 +1,5 @@
 {
-    "name": "FEND Capstone - Travel App",
+    "name": "fend-capstone-travel-app",
     "version": "1.0.0",
     "scripts": {
         "test": "jest",
