@@ -55,3 +55,4 @@ The extend options which was implemented is the remove a trip functionality
 * [Sass Basics](https://sass-lang.com/guide)
 * [Jest Tutorial](https://www.valentinog.com/blog/jest/)
 * [Google Fonts](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans:ital,wght@0,400;1,600&sidebar.open)
+* [Package.json warning in vscode](https://github.com/Microsoft/vscode-react-native/issues/151)
