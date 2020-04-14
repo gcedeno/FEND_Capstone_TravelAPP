@@ -1,5 +1,6 @@
 form {
-    border: 1px solid #545454;
+    /* border: 1px solid #545454; */
+    border: 1px thick double #32a1ce;
     border-radius: 3px;
     padding: 40px;
     width: 800px;
@@ -13,14 +14,14 @@ input {
     margin: 10px 0;
 }
 
-//phone
+/* //phone */
 @media only screen and (max-width: 715px) {
 }
 
-// tablet
+/* // tablet */
 @media only screen and (max-width: 990px) {
 }
 
-// desktop
+/* // desktop */
 @media only screen and (min-width: 901px) {
 }

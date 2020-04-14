@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Coming+Soon&display=swap')
-
-h1, h2, h3, h4, h5, h6 {
+/* @import url('https://fonts.googleapis.com/css?family=Coming+Soon&display=swap') */
+/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> */
+/* h1, h2, h3, h4, h5, h6 {
   font-family: 'Coming Soon', cursive;
-}
+} */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Coming Soon', cursive;
 }
@@ -33,11 +33,11 @@ img{
   height: auto;
 }
 #offline {
-  border: 1px dotted red;
+  border: 1px dotted rgb(231, 13, 13);
   margin: .5em auto;
   padding: .5em;
   text-align: center;
-  color: red;
+  color: rgb(243, 18, 93);
 }
 #pixabay{
   width: 75px;

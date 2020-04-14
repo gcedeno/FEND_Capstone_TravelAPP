@@ -1,7 +1,7 @@
  /* The alert message box */
  .errors {
     padding: 20px;
-    background-color: #4b0c07; /* Red */
+    background-color: #2bcc2b; /* Green */
     color: white;
     margin-bottom: 15px;
     display: none;
