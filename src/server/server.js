@@ -1,63 +1,78 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = [];//{};
+let destinationData = []
 
+// Dependencies for Server Configuration
 // Require Express to run server and routes
 const express = require('express')
 /* Dependencies */
-const bodyParser = require('body-parser')
+const {json, urlencoded} = require('body-parser')
 const cors = require('cors')
+const uuid = require('uuid/v4')
 const fetch = require('node-fetch')
-// Start up an instance of app
+
+// Get port from environment otherwise fallback to port 3000
+const PORT = process.env.PORT || 3000
+
+// initialize express server with json and cors middleware
 const app = express()
-/* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-// Cors for cross origin allowance
+app.use(urlencoded({extended: false}))
+app.use(json())
 app.use(cors())
-// Initialize the main project folder
-app.use(express.static('website'));
 
-// Setup Server
+// Serve static files from dist folder
+app.use(express.static('dist'))
 
-const port = 8000;
-// Spin up the server
-const server = app.listen(port, listening);
- function listening(){
-    //console.log(server);
-    console.log(`running on localhost: ${port}`);
-  };
+// Connecting to the scripts running the APIs
+const {fetchWeather} = require('./openweather')
 
-// ROUTES!
-// GET Route to retrieve projectData
-//Respond with JS object when a GET request is made to the homepage
-//app.get('/apidata', (req, res) => { //original route
-app.get('/all', (req, res) => {  
-    /*console.log(req)//information from a GET request */
-    res.status(200).send(projectData)
-  });
-  
-  // POST Route to store date, temp and user input in projectData
- //app.post('/apidata', (req, res) => { //original post 
- app.post('/apidata', (req, res) => {
-    const {date, temp, content} = req.body
-    //projectData = {
-    let newEntry = {
-      date,
-      temp,
-      content
-    };
-    projectData.unshift(newEntry); //add to the front of the array
-    res.status(201).send();
-    console.log("New Data Entry:",newEntry)//
-    console.log("Updated Project Data:\n",projectData);
-  }); 
-/*app.post('/apidata', (req, res) => {
-    //projectData.push(req.body)
-    projectData = req.body; //Structure of the req.body created in app.js (line74)
-    res.send();
-    console.log(projectData);
-  });*/
+// Get all destinations
+app.get('/destinations', (req, res) => {
+  res.status(200).send(tripData)
+})
 
-console.log("Initial Project Data when starting the server: ",projectData);
+    /// **********************************************************/////
+    // Get the weather forecast for the city (At the moment only actual weather)
+    app.post('/trip', async (req, res) => {
+      try { 
+        const weather = await fetchWeather(lat, lng) //New change in function 
+        // Calc time difference in days with no comma
+        const difference = (
+          (new Date(date).getTime() - new Date().getTime()) /
+          (1000 * 60 * 60 * 24)
+        ).toFixed(0)
+        const trip = {
+          id: uuid(),
+          img,
+          location,
+          date,
+          difference,
+          weather,
+        }
+        tripData.push(trip)
+        res.status(201).send()
+  } catch (e) {
+    console.log(e)
+    res.res.sendStatus(404)
+  }
+  })
+
+// Delete a destination by id
+app.delete('/destination', (req, res) => {
+  const {id} = req.query
+  const destinationIndex = destinationData.findIndex(destination => destinantion.id === id)
+  switch (destinationIndex) {
+    case -1:
+      res.sendStatus(404)
+      break
+    default:
+      destinationData.splice(destinationIndex, 1)
+      res.status(204).send({})
+  }
+})
+
+// Run server on selected port
+app.listen(PORT, () =>
+  console.log(`Server is up & running and listens on port ${PORT}`),
+)
+
