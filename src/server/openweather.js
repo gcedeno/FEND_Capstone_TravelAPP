@@ -7,7 +7,7 @@ let d = new Date()
 let newDate = d.getDate() + '.' + (d.getMonth()+1) + '.' + d.getFullYear()
 
 // OpenWeather Api to fetch weather forecast (5 days with data every 3 hours)
-module.exports.fetchCityForeCast = async (lat, lng) => {
+module.exports.fetchWeather = async (lat, lng) => {
     const {OpenWeather_BASEURL, OpenWeather_APIKEY} = process.env
   try {
     const request = await fetch(
