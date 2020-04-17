@@ -11,7 +11,7 @@ const uuid = require('uuid/v4')
 const fetch = require('node-fetch')
 
 // Get port from environment otherwise fallback to port 3000
-const PORT = process.env.PORT || 3000
+export const PORT = process.env.PORT || 3000
 
 // initialize express server with json and cors middleware
 const app = express()
@@ -33,7 +33,7 @@ app.get('/destinations', (req, res) => {
 
     /// **********************************************************/////
     // Get the weather forecast for the city (At the moment only actual weather)
-    app.post('/trip', async (req, res) => {
+    app.post('/destination', async (req, res) => {
       try { 
         const weather = await fetchWeather(lat, lng) //New change in function 
         // Calc time difference in days with no comma
