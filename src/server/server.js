@@ -98,6 +98,6 @@ app.delete('/destination', (req, res) => {
 
 // Run server on selected port
 app.listen(PORT, () =>
-  console.log(`Server is up & running and listens on port ${PORT}`),
+  console.log(`Server is up & running and listens on localhost: ${PORT}`),
 )
 
