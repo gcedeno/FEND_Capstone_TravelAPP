@@ -45,7 +45,6 @@
       "dependencies": {
         "body-parser": "^1.19.0",
         "core-js": "^3.4.4",
-        "dark-sky-api": "^0.6.32",
         "express": "^4.17.1",
         "node-fetch": "^2.6.0",
         "skycons": "^1.0.0",
