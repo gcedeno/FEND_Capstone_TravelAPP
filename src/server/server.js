@@ -26,6 +26,8 @@ app.use(express.static('dist'))
 
 // Connecting to the scripts running the APIs
 const {fetchWeather} = require('../client/js/openweather')
+const {fetchProposals, fetchData} = require('../client/js/geonames')
+
 
 // Get all destinations
 app.get('/destinations', (req, res) => {
