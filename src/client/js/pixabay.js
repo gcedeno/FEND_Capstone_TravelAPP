@@ -1,8 +1,4 @@
 // Script for fetching data using the pixabay API
-// Gettng the API credentials from the .env file
-require('dotenv').config()
-//required fetching functionality 
-const fetch = require('node-fetch')
 
 // PixaBayApi to fetch a city image
 module.exports.fetchImage = async city => {

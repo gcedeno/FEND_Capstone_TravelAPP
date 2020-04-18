@@ -1,7 +1,3 @@
-// Gettng the API credentials from the .env file
-require('dotenv').config()
-//required fetching functionality 
-const fetch = require('node-fetch')
 
 // Create a new date instance dynamically with JS
 let d = new Date()
