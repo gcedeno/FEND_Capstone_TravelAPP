@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "main":"index.js",
     "description":"Capstone project for FEND - Travel App",
-    "scripts": {
+    
+    "scripts": { 
         "test": "jest",
         "start": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
