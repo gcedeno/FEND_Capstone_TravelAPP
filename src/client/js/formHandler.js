@@ -20,9 +20,12 @@ export const getTrips = async () => {
   } catch (e) {
     setError("Ups, we are not getting any destinations. Please give it another try!.")
   }
-}
+} 
 
-// Helper to create a trip based on inputs
+// In case there is no image available from pixabay
+import fallbackImage from '../media/image-not-available.png'
+
+// Creating a trip based on inputs
 const createTrip = trip => {
   const {location, img, date, id, difference, weather} = trip
   const tripHtml = `<div class="trip"">
@@ -81,5 +84,3 @@ const addEventListenersToRemoveButtons = () => {
   })
 }
 
-// In case there is no image available
-import fallbackImage from '../media/image-not-available.png'
