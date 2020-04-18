@@ -12,8 +12,8 @@ const fetch = require('node-fetch')
 
 // Get port from environment otherwise fallback to port 3000
 // exporting the PORT variable to be used in other scripts
-/*export const PORT = process.env.PORT || 3000*/
-const PORT = 3000 //initial setup for testing
+export const PORT = process.env.PORT || 3000
+//const PORT = 3000 //initial setup for testing
 // initialize express server with json and cors middleware
 const app = express()
 

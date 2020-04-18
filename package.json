@@ -7,6 +7,13 @@
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack-dev-server --open --config webpack.dev.js"
     },
+    "keywords": [
+        "weather",
+        "WebApp"
+    ],
+    "author": "Gustavo Cedeno",
+    "license": "MIT ",
+    
     "dependencies": {
         "@babel/core": "^7.4.5",
         "@babel/preset-env": "^7.4.5",

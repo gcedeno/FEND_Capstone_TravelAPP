@@ -11,24 +11,56 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'source-map',
+    stats: 'verbose',
+    devServer:{
+        contentBase:'dist'
+    },
     module: {
         rules: [
             {
-                test: '/\.js$/',
-                exclude: /node_modules/,
-                loader: "babel-loader"
+              test: /\.js$/,
+              exclude: /node_modules/,
+              use: 'babel-loader',
             },
             {
-                test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
-        ]
+              test: /\.s?[ac]ss$/,
+              use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+            {
+              test: /\.(png|jpe?g|gif)$/i,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name(file) {
+                      if (process.env.NODE_ENV === 'development') {
+                        return '[path][name].[ext]'
+                      }
+                      return '[contenthash].[ext]'
+                    },
+                  },
+                },
+              ],
+            },
+            {
+              test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d\.\d+\.\d+)?$/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]',
+                  },
+                },
+              ],
+            },
+          ],
     },
     plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
-            filename: "./index.html",
-        }),
+        new HtmlWebpackPlugin({
+            title: 'Travel App',
+            filename: './index.html',
+            template: './src/client/views/index.html',
+          }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
@@ -37,6 +69,13 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
-    ]
+        }),
+    ],
+    resolve: {
+        extensions: ['.js'],
+      },
+      output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, '../dist'),
+      },
 }
