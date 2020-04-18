@@ -17,7 +17,6 @@
     ],
     "author": "Gustavo Cedeno",
     "license": "MIT ",
-
     "devDependencies": {
         "@babel/core": "^7.7.4",
         "@babel/preset-env": "^7.7.4",
@@ -41,13 +40,13 @@
         "webpack-dev-server": "^3.9.0",
         "webpack-merge": "^4.2.2",
         "workbox-webpack-plugin": "^4.3.1"
-      },
-      "dependencies": {
+    },
+    "dependencies": {
         "body-parser": "^1.19.0",
         "core-js": "^3.4.4",
         "express": "^4.17.1",
         "node-fetch": "^2.6.0",
         "skycons": "^1.0.0",
         "uuid": "^3.3.3"
-      }
     }
+}
