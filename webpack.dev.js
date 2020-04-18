@@ -10,11 +10,11 @@ module.exports = {
         library: 'Client'
     },
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'inline source-map',
     stats: 'verbose',
-    // devServer:{
-    //     contentBase:'dist'
-    // },
+    devServer:{
+        contentBase:'dist'
+    },
     module: {
         rules: [
             {
