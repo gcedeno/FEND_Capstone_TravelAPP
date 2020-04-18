@@ -1,18 +1,18 @@
 //Getting the active port from the server configuration
 import { PORT } from '../server/server.js'
-// clear UI and render Trips
-export const renderTrips = () => {
+// clearing the UI and showing new destinations
+export const showDestinations = () => {
   clearResults()
-  getTrips()
+  getDestinations()
 }
 
 // fetching destination data and adding event listener to remove buttons based on the trip id
-export const getTrips = async () => {
+export const getDestinations = async () => {
   try {
     const result = await fetch(`http://localhost:${PORT}/destinations`)
     const trips = await result.json()
     clearResults()
-    clearError()
+    //clearError()
     if (trips.length > 0) {
       trips.forEach(trip => createTrip(trip))
       addEventListenersToRemoveButtons()
