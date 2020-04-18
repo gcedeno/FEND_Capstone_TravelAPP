@@ -1,5 +1,5 @@
 //Getting the active port from the server configuration
-import { PORT } from '../server/server.js'
+import { PORT } from '../../server/server'
 // clearing the UI and showing new destinations
 export const showDestinations = () => {
   clearResults()

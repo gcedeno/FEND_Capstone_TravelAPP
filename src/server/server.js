@@ -11,6 +11,7 @@ const uuid = require('uuid/v4')
 const fetch = require('node-fetch')
 
 // Get port from environment otherwise fallback to port 3000
+// exporting the PORT variable to be used in other scripts
 export const PORT = process.env.PORT || 3000
 
 // initialize express server with json and cors middleware
