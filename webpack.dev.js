@@ -21,40 +21,40 @@ module.exports = {
               test: /\.js$/,
               exclude: /node_modules/,
               use: 'babel-loader',
-            }],
-            // {
-            //   test: /\.s?[ac]ss$/,
-            //   use: ['style-loader', 'css-loader', 'sass-loader'],
-            // },
-            // {
-            //   test: /\.(png|jpe?g|gif)$/i,
-            //   use: [
-            //     {
-            //       loader: 'file-loader',
-            //       options: {
-            //         name(file) {
-            //           if (process.env.NODE_ENV === 'development') {
-            //             return '[path][name].[ext]'
-            //           }
-            //           return '[contenthash].[ext]'
-            //         },
-            //       },
-            //     },
-            //   ],
-            // },
-    //         {
-    //           test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d\.\d+\.\d+)?$/,
-    //           use: [
-    //             {
-    //               loader: 'file-loader',
-    //               options: {
-    //                 name: '[name].[ext]',
-    //               },
-    //             },
-    //           ],
-    //         },
-    //       ],
-    // },
+            },
+            {
+              test: /\.s?[ac]ss$/,
+              use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+            {
+              test: /\.(png|jpe?g|gif)$/i,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name(file) {
+                      if (process.env.NODE_ENV === 'development') {
+                        return '[path][name].[ext]'
+                      }
+                      return '[contenthash].[ext]'
+                    },
+                  },
+                },
+              ],
+            },
+            {
+              test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d\.\d+\.\d+)?$/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]',
+                  },
+                },
+              ],
+            },
+          ],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Travel App',
@@ -79,4 +79,4 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
       },
 }
-}
+
