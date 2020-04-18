@@ -2,7 +2,7 @@
 // Gettng the API credentials from the .env file
 require('dotenv').config()
 //required fetching functionality 
-import fetch from 'node-fetch';
+const fetch = require('node-fetch')
 
 // GeoApi to fetch city proposals
 module.exports.fetchProposals = async term => {
