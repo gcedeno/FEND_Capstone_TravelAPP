@@ -17,6 +17,10 @@ import pixabayImage from './media/pixabay-logo.png'
 showNewSearch()
 showDestinations()
 
+// adding the pixabay logo to the footer to comply with copyrights 
+const pixabay = document.getElementById('pixabay')
+pixabay.setAttribute('src', pixabayImage)
+
 // export as module
 export{
 	showNewSearch,
