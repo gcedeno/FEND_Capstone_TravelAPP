@@ -31,7 +31,8 @@ const handleForm = () => {
   }
 // Saving a destination to the API and fetching destinations
 const saveTrip = async (location, date) => {
-    const result = await fetch(`http://localhost:${PORT}/destination`, {
+  const result = await fetch('http://localhost:3000/destination', {
+    // const result = await fetch(`http://localhost:${PORT}/destination`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +70,8 @@ const handleInput = async e => {
     if (value.length >= 4) {
       return
     }
-    const result = await fetch(`http://localhost:${PORT}/proposals?term=${value}`)
+    // const result = await fetch(`http://localhost:${PORT}/proposals?term=${value}`)
+    const result = await fetch(`http://localhost:3000/proposals?term=${value}`)
     const proposals = await result.json()
     createDataList(proposals)
   }

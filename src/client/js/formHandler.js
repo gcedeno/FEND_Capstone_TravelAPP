@@ -9,7 +9,8 @@ export const showDestinations = () => {
 // fetching destination data and adding event listener to remove buttons based on the trip id
 export const getDestinations = async () => {
   try {
-    const result = await fetch(`http://localhost:${PORT}/destinations`)
+    // const result = await fetch(`http://localhost:${PORT}/destinations`)
+    const result = await fetch('http://localhost:3000/destinations')
     const trips = await result.json()
     clearResults()
     //clearError()
