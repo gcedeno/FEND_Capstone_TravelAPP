@@ -23,10 +23,10 @@ The goal of this project is to get practice with:
 
 ## Development
 
-To get webpack running, you’ll want to first run `npm run dev`, then `npm build`
-to get your dist folder created. Once that is created you can run `npm run dev`
-and `npm start` simultaneously to have hot loading of your project as well as a
-working express environment.
+Install all the dependencies runnig `npm i `.To get webpack running and build the dist
+folder, run `npm run build-dev`.
+Once that is created you can run `npm start` to have hot loading of the project as 
+well as a working express environment.
 
 
 
