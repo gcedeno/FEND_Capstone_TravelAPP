@@ -25,7 +25,7 @@ app.use(cors())
 app.use(express.static('dist'))
 
 // Connecting to the scripts running the APIs
-const {fetchWeather} = require('./openweather')
+const {fetchWeather} = require('../client/js/openweather')
 
 // Get all destinations
 app.get('/destinations', (req, res) => {
