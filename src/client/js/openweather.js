@@ -1,5 +1,7 @@
+// Gettng the API credentials from the .env file
 require('dotenv').config()
-const fetch = require('node-fetch')
+//required fetching functionality 
+import fetch from 'node-fetch';
 
 // Create a new date instance dynamically with JS
 let d = new Date()
@@ -7,7 +9,7 @@ let d = new Date()
 let newDate = d.getDate() + '.' + (d.getMonth()+1) + '.' + d.getFullYear()
 
 // OpenWeather Api to fetch weather forecast (5 days with data every 3 hours)
-module.exports.fetchWeather = async (lat, lng) => {
+export async function fetchWeather(lat, lng) {
     const {OpenWeather_BASEURL, OpenWeather_APIKEY} = process.env
   try {
     const request = await fetch(
@@ -46,4 +48,4 @@ module.exports.fetchWeather = async (lat, lng) => {
     console.log("error",e);
     throw e;
   }
-};
+}
