@@ -1,3 +1,4 @@
+alert("I am running")
 // import main app functions
 import { showNewSearch } from './js/app'
 import { showDestinations } from './js/formHandler'
