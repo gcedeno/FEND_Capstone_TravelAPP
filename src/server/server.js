@@ -34,6 +34,18 @@ const {fetchImage} = require('../client/js/pixabay')
 app.get('/destinations', (req, res) => {
   res.status(200).send(tripData)
 })
+// Getting destination proposals
+app.get('/proposals', async (req, res) => {
+  try {
+    const data = await fetchProposals(req.query.term)
+    const proposals = await data.geonames.map(({name, countryCode}) => ({
+      location: `${name}, ${countryCode}`,
+    }))
+    res.status(200).send(proposals)
+  } catch (e) {
+    res.sendStatus(404)
+  }
+})
 
     /// **********************************************************/////
     // Get the weather forecast for the city (At the moment only actual weather)
