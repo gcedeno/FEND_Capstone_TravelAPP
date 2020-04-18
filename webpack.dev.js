@@ -12,9 +12,9 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
-    devServer:{
-        contentBase:'dist'
-    },
+    // devServer:{
+    //     contentBase:'dist'
+    // },
     module: {
         rules: [
             {

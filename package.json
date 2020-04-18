@@ -7,7 +7,7 @@
         "test": "jest",
         "start": "node src/server/server.js",
         "build-prod": "webpack --config webpack.prod.js",
-        "build-dev": "webpack-dev-server --open --config webpack.dev.js"
+        "build-dev": "webpack --config webpack.dev.js"
     },
     "keywords": [
         "weather",
@@ -24,7 +24,9 @@
         "express": "^4.17.1",
         "node-fetch": "^2.6.0",
         "skycons": "^1.0.0",
-        "uuid": "7.0.3"
+        "uuid": "7.0.3",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
     },
     "depvDendencies": {
         "@babel/core": "^7.4.5",
