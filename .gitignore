@@ -1,5 +1,6 @@
 dist
 node_modules
+_mocks_
 *.pdf
 .env
 something.js
