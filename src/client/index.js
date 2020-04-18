@@ -1,6 +1,6 @@
 // import main app functions
-import { somefunction } from './js/app.js'
-import { handleSubmit } from './js/formHandler'
+import { showNewSearch } from './js/app'
+import { showDestinations } from './js/formHandler'
 
 //import styles
 import './styles/resets.scss'
@@ -14,12 +14,12 @@ import './styles/messages.scss'
 import pixabayImage from './media/pixabay-logo.png'
 
 //Calling and using main functions imported from the js scripts
-somefunction()
-handleSubmit()
+showNewSearch()
+showDestinations()
 
 // export as module
 export{
-	somefunction,
-	handleSubmit
+	showNewSearch,
+	showDestinations
 }
  
