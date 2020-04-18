@@ -46,11 +46,20 @@ app.get('/proposals', async (req, res) => {
     res.sendStatus(404)
   }
 })
+// Save a destination based on location and date
+app.post('/destination', async (req, res) => {
+  try {
+    const {location: city, date} = req.body
+    const [cityName, country] = city.replace(/\s/g, '').split(',')
+    const [{lat, lng, location}, img] = await Promise.all([
+      fetchData(cityName, country),
+      fetchImage(`${cityName}`),
+    ])
 
     /// **********************************************************/////
     // Get the weather forecast for the city (At the moment only actual weather)
-    app.post('/destination', async (req, res) => {
-      try { 
+    // app.post('/destination', async (req, res) => {
+    //   try { 
         const weather = await fetchWeather(lat, lng) //New change in function 
         // Calc time difference in days with no comma
         const difference = (
