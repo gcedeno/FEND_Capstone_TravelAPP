@@ -1,87 +1,86 @@
-//Getting the active port from the server configuration
-import { PORT } from '../../server/server'
-// clearing the UI and showing new destinations
-export const showDestinations = () => {
-  clearResults()
-  getDestinations()
-}
+import { isFutureDate, isDateAfterThatDate, showErrorMessage } from './helpFunctions';
 
-// fetching destination data and adding event listener to remove buttons based on the trip id
-export const getDestinations = async () => {
-  try {
-    // const result = await fetch(`http://localhost:${PORT}/destinations`)
-    const result = await fetch('http://localhost:3000/destinations')
-    const trips = await result.json()
-    clearResults()
-    //clearError()
-    if (trips.length > 0) {
-      trips.forEach(trip => createTrip(trip))
-      addEventListenersToRemoveButtons()
+export const formValidation = () => {
+
+    let errors = '';
+    
+    const location = document.getElementById('location');
+    const destination = document.getElementById('destination');
+    const dateStart = document.getElementById('date-start');
+    const dateEnd = document.getElementById('date-end');
+
+
+    // check the Current Location field
+    if(location.value.length < 3) {
+
+        location.classList.remove('valid');
+        location.classList.add('error');
+
+        errors += '<p>Please, add the Current Location!</p>';
     }
-  } catch (e) {
-    setError("Ups, we are not getting any destinations. Please give it another try!.")
-  }
-} 
+    else {
+        //validated
+        location.classList.remove('error');
+        location.classList.add('valid');
+    }
 
-// In case there is no image available from pixabay
-import fallbackImage from '../media/image-not-available.png'
+    // check the Destination field
+    if(destination.value.length < 3) {
 
-// Creating a trip based on inputs
-const createTrip = trip => {
-  const {location, img, date, id, difference, weather} = trip
-  const tripHtml = `<div class="trip"">
-    <div id="trip-image">
-      <img src="${img || fallbackImage}" alt="${location}" />
-    </div>
-    <div id="trip-data">
-      <h2 id="trip-location">My trip to: ${location}</h2>
-      <h3 id="trip-time">Departing: ${date}</h3>
-      <div id="trip-buttons">
-        <button disabled>Save Trip</button>
-        <button id="remove" data-key="${id}">Remove Trip</button>
-      </div>
-      <p id="trip-waiting-time">${location} is ${difference} days away</p>
-        ${
-          weather.high && weather.low && weather.summary
-            ? `<div id="trip-weather">
-            <div id="trip-weather-data">
-              <p id="trip-weather-headline">Typical weather for then is:</p>
-              <p id="trip-weather-conditions">
-                High – ${weather.high}, Low – ${weather.low}
-              </p>
-              <p id="trip-weather-summary">${weather.summary}</p>
-              </div>
-          </div>`
-            : '<p>No weather forecast available</p>'
-        }
+        destination.classList.remove('valid');
+        destination.classList.add('error');
         
-    </div>
-  </div>`
-  addTripToDOM(tripHtml)
+        errors += '<p>Please, add the Destination!</p>';
+        
+    }
+    else {
+        //validated
+        destination.classList.remove('error');
+        destination.classList.add('valid');
+    }
+
+    // check the Start Date field
+    if(!isFutureDate(dateStart.value) || dateStart.value == '') {
+
+        dateStart.classList.add('error');
+        dateStart.classList.remove('valid');
+
+        errors += '<p>Please, select the Departing Date <br>(The Date cannot be before today)</p>';
+       
+    } else {
+        //validated
+        dateStart.classList.remove('error');
+        dateStart.classList.add('valid');
+    }
+
+    // check the End Date field
+    if(!isDateAfterThatDate(dateStart.value, dateEnd.value) || !isFutureDate(dateEnd.value) || dateEnd.value == ''){
+        dateEnd.classList.add('error')
+        dateEnd.classList.remove('valid');
+        
+        errors += '<p>Please, select the Returning Date <br>(The Date cannot be before the Departing Date)</p>';
+        
+    } else {
+        dateEnd.classList.remove('error')
+        dateEnd.classList.add('valid');
+    }
+
+    if(!errors) {
+        
+        document.getElementById('search').classList.add('disabled')
+        console.log("Everything looking good during Form Validation")
+        // if not errors return the validated object
+        return {
+                    location: location.value, 
+                    destination: destination.value, 
+                    dateStart: dateStart.value, 
+                    dateEnd: dateEnd.value
+                }
+    } else {
+
+        document.getElementById('search').classList.remove('disabled')
+        showErrorMessage(errors);
+        return false;
+
+    }
 }
-
-
-// Adding a destination to the DOM
-const addTripToDOM = trip => {
-  let results = document.getElementById('results')
-  if (!results) {
-    results = "<section id='results'></section>"
-    document.querySelector('main').insertAdjacentHTML('afterbegin', results)
-  }
-  document.getElementById('results').insertAdjacentHTML('beforeend', trip)
-}
-
-// Clear previous query results
-const clearResults = () => {
-  const results = document.getElementById('results')
-  results && results.remove()
-}
-
-// Adding event listener to remove buttons
-const addEventListenersToRemoveButtons = () => {
-  const tripRemoveButtons = document.querySelectorAll('.trip #remove')
-  tripRemoveButtons.forEach(trip => {
-    trip.addEventListener('click', () => removeTrip(trip.dataset.key))
-  })
-}
-
