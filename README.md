@@ -1,15 +1,17 @@
 # Project Overview
 
 - [Project Instructions](#project-instructions)
-- [Development](#development)
+- [Development & Use](#development)
 - [Running with the 3-Party-APIs](#running)
 - [Extend Options](#extend-options)
 
 ## Project Instructions
 
-Project `FEND Capstone - Travel App`. The project
-contains webpack configurations, express server which connect to 3 different
-3-Party-APIs to get the necessary data.
+Project `FEND Capstone - Travel App`. 
+This project requires to build out a travel app that, obtains a desired trip location
+ & date from the user, and displays weather and an image of the location using information 
+ obtained from external APIs. The project contains webpack configurations, 
+ express server which connect to 3-Party-APIs to get the necessary data.
 
 The goal of this project is to get practice with:
 
@@ -21,11 +23,12 @@ The goal of this project is to get practice with:
 - Using APIs and creating requests to external urls
 - all learned techniques
 
-## Development
-
-Install all the dependencies runnig `npm i `.To get webpack running and build the dist
-folder, run `npm run build-dev`.
-Once that is created you can run `npm start` to have hot loading of the project as 
+## Development & Use
+1. Install all the dependencies runnig `npm i `.
+2. For development environment to get webpack running and build the dist
+folder run the command `npm run dev`;
+4. For production `npm run build`;
+5. Finally you can run `npm start` to have hot loading of the project as 
 well as a working express environment.
 
 
@@ -34,12 +37,11 @@ well as a working express environment.
 
 To run the server with the 3-Party-APIs you need an API Key or username and a
 baseUrl in an .env file. `GEO_BASEURL` and `GEO_USERNAME` for the Geonames API,
-`OpenWeather_APIKEY` and `OpenWeather_BASEURL` for the DarkSky API & `PIXABAY_KEY` and
-`PIXABAY_BASEURL` for the Pixabay API
+`Weatherbit_APIKEY` and `Weatherbit_BASEURL` for the Weatherbit API & `PIXABAY_KEY` 
+and `PIXABAY_BASEURL` for the Pixabay API
 
-Now you're able to run the server with the 3-Party-APIs to everything you need
-for the Trip planning.
-
+Now jus enter your current location, desired destination, trip dates and search for 
+important details about your next travel adventure! 
 
 ## References
 * [Udacity's Front End Developer ND](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011)
