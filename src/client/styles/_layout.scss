@@ -1,0 +1,66 @@
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 4;
+    background-color: rgba($color: $color-black, $alpha: 0.55);
+
+    .header {
+        @include f-b-c;
+
+     
+        nav li {
+
+            &:not(.active){
+                display: none;
+            }
+
+            a {
+                color: $color-white;
+                padding: 5px 10px;
+            }
+
+            }
+       
+    }
+}
+
+footer {
+    background-color: $color-footer;
+    color: $color-white;
+
+    .footer {
+        height: 140px;
+        @include f-b-c-col;
+
+        
+        @media (min-width: 768px){
+            flex-direction: row;
+            height: 100px;
+
+            .copyright {
+                margin-bottom: 0;
+            }
+        }
+    }
+    #pixabay{
+        display: inline;
+        max-height: 50px;
+        max-width: 100px;
+        object-fit: cover;
+        background-color: oldlace;
+    }
+    #Weather{
+        display: inline;
+        max-height: 50px;
+        max-width: 100px;
+        font-style: normal;
+        color: snow;
+    }
+    #Geo{
+        display: inline;
+        max-height: 50px;
+        max-width: 100px;
+        font-style: normal;
+        color: snow;
+    }
+}
