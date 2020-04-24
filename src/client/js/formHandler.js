@@ -68,7 +68,7 @@ export const formValidation = () => {
     if(!errors) {
         
         document.getElementById('search').classList.add('disabled')
-        console.log("Everything looking good during Form Validation")
+        //console.log("Everything looking good during Form Validation")
         // if not errors return the validated object
         return {
                     location: location.value, 

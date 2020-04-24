@@ -77,7 +77,7 @@ export const createNewTripHtml = (allNewTrip) => {
     
     newTripLocationBlock.innerHTML = content;
     
-    console.log("newTripLocationBlock.innerHTML content created")
+    //console.log("newTripLocationBlock.innerHTML content created")
     return newTripLocationBlock;                
 }
 

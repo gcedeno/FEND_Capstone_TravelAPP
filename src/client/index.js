@@ -18,7 +18,7 @@ pixabay.setAttribute('src', pixabayImage)
 const createNewTripBlock = (data) => {
 
     //DATA should be the newTripHolder
-    console.log("app.js Data for createNewTripBlock:\n",data);
+    //console.log("app.js Data for createNewTripBlock:\n",data);
     //get the DOM
     const newTripBlock = document.getElementById('new-trip');
     newTripBlock.innerHTML = '';
@@ -90,20 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
             //check if the button is not disabled
             if(!searchBtn.classList.contains('disabled')) {
                 
-                console.log("Search button not disable, press to run");
+                //console.log("Search button not disable, press to run");
                 
                 let userData = formValidation()
                 //check the form data(validation)
                 if(userData) {
-                    console.log("User data good to go!")
-                    toggleTripCreateSection('loading'); // show loading gif
+                    //console.log("User data good to go!")
+                    //toggleTripCreateSection('loading'); // show loading gif
                     scrollToSection('trip-create');
                     
                     //start to generate the data(from APIs)
                     getDataFromAPIs(userData)
                     .then(newTripDestination => {
                        
-                        console.log("Generating the data from the APIs")
+                        //console.log("Generating the data from the APIs")
                        
                         if(newTripDestination.error) {
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         } 
                         
                         else {
-                         console.log("Adding a new destination the the tripHolder object")   
+                         //console.log("Adding a new destination the the tripHolder object")   
 
                         //add a new destination to tripHolder object
                         newTripHolder.push(newTripDestination);

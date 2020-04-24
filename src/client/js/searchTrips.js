@@ -5,7 +5,7 @@ import { getCoordinatesAPI, getWeatherAPI, getImageAPI } from './apiManager';
 
 export const getDataFromAPIs = async (userData) => {
     let newTrip = {}
-    console.log("Calling the functions to fetching data from the APIS with following userData:/n",userData);
+    //console.log("Calling the functions to fetching data from the APIS with following userData:/n",userData);
     newTrip.dateStart = userData.dateStart;
     newTrip.dateEnd = userData.dateEnd;
     newTrip.toDoList = [];
@@ -96,7 +96,7 @@ export const getDataFromAPIs = async (userData) => {
 
 
     }
-    console.log("newTrip Data",newTrip);
+   // console.log("newTrip Data",newTrip);
 
     return newTrip;
     
@@ -174,7 +174,7 @@ export const saveNewTrip = (newTripHolder) => {
 }
 
 export const updateForm = () => {
-    console.log("Updating the UI Form");
+    //console.log("Updating the UI Form");
     //get the DOM
     const tripFormBlock = document.getElementById('trip-form');
     const formInputs = tripFormBlock.querySelectorAll('input');
