@@ -40,9 +40,6 @@ baseUrl in an .env file. `GEO_BASEURL` and `GEO_USERNAME` for the Geonames API,
 Now you're able to run the server with the 3-Party-APIs to everything you need
 for the Trip planning.
 
-## Extend Options
-
-The extend options which was implemented is the remove a trip functionality
 
 ## References
 * [Udacity's Front End Developer ND](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011)

@@ -1,68 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
-    <title>CapstoneProject</title>
-    <!-- Link to main.js in the distribution folder -->
-    <!-- <script type="text/javascript" src="../../dist/main.js"></script> -->
-    <!-- Initial Hard-Coded Stlyle References -->
-        <!-- <link rel="stylesheet" type="text/css" href="../styles/resets.css">
-        <link rel="stylesheet" type="text/css" href="../styles/base.css" >
-        <link rel="stylesheet" type="text/css" href="../styles/header.css">
-        <link rel="stylesheet" type="text/css" href="../styles/form.css">
-        <link rel="stylesheet" type="text/css" href="../styles/footer.css">
-        <link rel="stylesheet" type="text/css" href="../styles/messages.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600&display=swap" rel="stylesheet"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="../styles/styles.css"> -->
-  </head>
-  <body>
-    <header>
-      <h1>Travel Planner</h1>
-    </header>
-    <main>
-      <section id="search">
-        <form id="search-trip-form">
-          <fieldset>
-            <label id="search-trip-location-label" for="search-trip-location"
-              >My trip to:</label>
-            <input
-              type="text"
-              id="search-trip-location"
-              placeholder="Enter your next destination"
-              list="search-trip-locations"
-              autocomplete="on"
-            />
-          </fieldset>
-          <fieldset>
-            <label id="search-trip-date-label" for="search-trip-date"
-              >Departing Date:</label
-            >
-            <input type="date" id="search-trip-date" />
-          </fieldset>
-          <div id="search-trip-buttons">
-            <button id="search-trip-save" type="submit">Save trip</button>
-            <button id="search-trip-reset" type="reset">Remove trip</button>
-          </div>
-        </form>
-      </section>
-    </main>
-    <footer>
-      <div id="sponsors">
-        <p id="powered-by">
-          Powered by
-          <a href="https://https://openweathermap.org/" target="_blank">OpenWeather.org</a>
-          |
-          <a href="https://www.geonames.org/" target="_blank">geonames.org</a> |
-          <a href="https://pixabay.com/" target="_blank"
-            ><img id="pixabay" alt="Pixabay"
-          /></a>
-        </p>
-      </div>
-    </footer>
-    <!-- Initial Hard-Coded Scripts for testing -->
-    <!-- <script type="text/javascript" src="../js/app.js"></script> -->
-  <!-- <script type="text/javascript" src="js/additionalApp.js"></script> -->
-
-  </body>
+    <head>
+        <title>Travel Planner App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#45b98f"/>
+       
+    </head>
+    <body>
+        <header>
+            <div class="header container">
+                <a class="logo" href="/" title="Travel Planner App"><span></span></a>
+                <nav>
+                    <ul>
+                        <li><a href="#trip-list" data-nav="trip-list">Trips</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section id="trip-form" class="trip-form">
+                <div class="container">
+                    <div class="trip-form__block">
+                        <div class="page-title">
+                                <h1>Travel Planner App</h1>
+                                <p><em>Select your destination!</em></p>
+                        </div>
+                        <div class="trip-form__entry">
+                            <div class="trip-form__row">
+                                <div class="trip-form__location">
+                                    <label for="location">
+                                        <span>Current Location</span>
+                                        <input type="text" id="location" name="location">
+                                    </label>
+                                </div>
+                                <div class="trip-form__destination">
+                                    <label for="destination">
+                                        <span>Destination/City</span>
+                                        <input type="text" id="destination" name="destination">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="trip-form__row">
+                                <div class="trip-form__date-start datepicker">
+                                    <label for="date-start">
+                                        <span>Departing</span>
+                                        <input type="date" id="date-start" name="date-start">
+                                    </label>
+                                </div>
+                                <div class="trip-form__date-end datepicker">
+                                    <label for="date-end">
+                                        <span>Returning</span>
+                                        <input type="date" id="date-end" name="date-end">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="trip-form__search">
+                                <span>&nbsp;</span>
+                                <button id="search">Search Trip</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="trip-create" class="trip-create">
+                <div id="loading-gif" class="loading-gif"><div class="loading-gif__icon"></div></div>
+                <div class="trip-create-content container">
+                    <h3 class="sec-title">Here are your New Trips!</h3>
+                    <div id="new-trip" class="new-trip">
+                            <!-- here will be new-trip__location block added by JS -->
+                    </div>
+                </div>
+               
+            </section>
+            <section id="trip-list" class="trip-list">
+                <div class="container">
+                    <h3 class="sec-title">Saved Trips</h3>
+                    <div id="trips-list-content" class="trip-list-content">
+                        <!-- here will be new-trip__location block added by JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+         <footer>
+            <div class="footer container">
+                <div class="copyright">Travel Planner &copy; 2020</div>
+            <div id="sponsors">
+              <p id="powered-by">
+                Powered by:
+                |
+                <a id="Weather" href="https://www.weatherbit.io" target="_blank">Weatherbit.io</a>
+                |
+                <a id="Geo" href="https://www.geonames.org" target="_blank">geonames.org</a> 
+                |
+                <a href="https://pixabay.com" target="_blank"><img id="pixabay"/></a>
+              </p>
+            </div>
+          </footer>
+        <div id="error-block" class="full-screen">
+            <div class="error-block__content full-screen__block">
+                <div class="full-screen__close js-popup-close">&times;</div>
+                <div class="full-screen__message js-err-message">
+                </div>
+            </div>
+        </div>
+        <div id="to-do-list" class="full-screen">
+            <div class="to-do-list__content full-screen__block">
+                <div class="full-screen__close js-popup-close">&times;</div>
+                <input type="text" name="to-do-list">
+                <input type="hidden" name="trip-dest-nr" value="">
+                <div class="save-to-do btn-green">Save</div> 
+            </div>
+        </div>
+          <!-- Script to register a service worker -->
+        <script>
+        //Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+        //Use the window load event to keep the page load performant 
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').then(registration =>{
+                console.log('SW registered successfuly: ', registration);
+            });
+        });
+        }else{
+        console.log("Service Worker not supported");
+                }
+        </script>
+    </body>
 </html>
