@@ -56,3 +56,5 @@ The extend options which was implemented is the remove a trip functionality
 * [Jest Tutorial](https://www.valentinog.com/blog/jest/)
 * [Google Fonts](https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans:ital,wght@0,400;1,600&sidebar.open)
 * [Package.json warning in vscode](https://github.com/Microsoft/vscode-react-native/issues/151)
+* [Fixing CORS error](https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9)
+* [Understanding Data & Time in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-date-and-time-in-javascript)
